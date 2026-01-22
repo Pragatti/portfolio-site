@@ -1,19 +1,73 @@
 import { motion } from "framer-motion";
-import { ArrowRight, Code, Palette, Zap, Rocket } from "lucide-react";
+import { ArrowRight, Code, Palette, Zap, Rocket, Briefcase, Users, Award, Coffee, Globe, Smartphone, Layout, Database, Star } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
 import SkillCard from "@/components/SkillCard";
+import { AnimatedCounter } from "@/components/AnimatedCounter";
+import { SectionHeader } from "@/components/SectionHeader";
 import heroBg from "@/assets/hero-bg.jpg";
 import profileImg from "@/assets/profile.jpg";
 
 const Index = () => {
   const skills = [
-    { icon: Code, name: "React", level: 95 },
-    { icon: Code, name: "TypeScript", level: 90 },
-    { icon: Code, name: "Next.js", level: 88 },
+    { icon: Code, name: "React.js", level: 95 },
+    { icon: Code, name: "Next.js", level: 90 },
+    { icon: Code, name: "TypeScript", level: 92 },
     { icon: Palette, name: "Tailwind CSS", level: 95 },
-    { icon: Zap, name: "JavaScript", level: 92 },
-    { icon: Rocket, name: "HTML/CSS", level: 98 },
+    { icon: Zap, name: "JavaScript (ES6+)", level: 93 },
+    { icon: Database, name: "GraphQL", level: 85 },
+  ];
+
+  const stats = [
+    { value: 3, suffix: "+", label: "Years Experience" },
+    { value: 98, suffix: "%", label: "Cross-Browser Compatibility" },
+    { value: 20, suffix: "%", label: "Performance Improvement" },
+    { value: 30, suffix: "%", label: "API Response Time Reduction" },
+  ];
+
+  const services = [
+    {
+      icon: Layout,
+      title: "Frontend Development",
+      description: "Building modular, responsive UI using React.js, Next.js, and Tailwind CSS. Optimizing site load speed and ensuring cross-browser compatibility.",
+    },
+    {
+      icon: Database,
+      title: "API Integration",
+      description: "Integrating headless CMS with GraphQL, RESTful APIs, and microservices. Reducing API response time and enabling dynamic content updates.",
+    },
+    {
+      icon: Zap,
+      title: "Performance Optimization",
+      description: "Conducting Lighthouse audits, implementing Core Web Vitals, code splitting, and lazy loading for optimal application performance.",
+    },
+    {
+      icon: Globe,
+      title: "Accessibility & UX",
+      description: "Ensuring 98% cross-browser compatibility, implementing accessibility best practices, and following modern UI/UX principles.",
+    },
+  ];
+
+  const testimonials = [
+    {
+      name: "Sarah Johnson",
+      role: "CEO, TechStart Inc.",
+      content: "Pragatti delivered an exceptional website that exceeded our expectations. The attention to detail and user experience is outstanding.",
+      rating: 5,
+    },
+    {
+      name: "Michael Chen",
+      role: "Product Manager, Digital Solutions",
+      content: "Working with Pragatti was a pleasure. Professional, creative, and always delivers on time. Highly recommended!",
+      rating: 5,
+    },
+    {
+      name: "Emily Rodriguez",
+      role: "Founder, Creative Agency",
+      content: "The quality of work and dedication to the project was remarkable. Our new platform has received amazing feedback from users.",
+      rating: 5,
+    },
   ];
 
   return (
@@ -45,7 +99,7 @@ const Index = () => {
                 transition={{ delay: 0.2 }}
                 className="text-sm font-medium text-primary mb-4 tracking-wider uppercase"
               >
-                Frontend Developer
+                React.js Developer
               </motion.div>
               
               <motion.h1
@@ -61,9 +115,9 @@ const Index = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4 }}
-                className="text-xl text-muted-foreground mb-8 max-w-2xl"
+                className="text-xl lg:text-2xl text-muted-foreground mb-8 max-w-2xl leading-relaxed"
               >
-                Crafting clean, elegant, and performant user experiences with 4+ years of expertise
+                Frontend Developer with <span className="text-primary font-semibold">3+ years</span> of experience building performant, scalable, and accessible web applications using <span className="text-primary font-semibold">React.js</span>, <span className="text-primary font-semibold">Next.js</span>, and <span className="text-primary font-semibold">TypeScript</span>
               </motion.p>
 
               <motion.div
@@ -96,11 +150,14 @@ const Index = () => {
             >
               <div className="relative">
                 <div className="absolute inset-0 bg-gradient-primary blur-3xl opacity-30 animate-glow" />
-                <img
-                  src={profileImg}
-                  alt="Pragatti Harchand"
-                  className="relative w-64 h-64 lg:w-96 lg:h-96 rounded-full object-cover border-4 border-primary/30 shadow-[0_0_60px_rgba(0,196,255,0.4)]"
-                />
+                <div className="relative w-64 h-64 lg:w-96 lg:h-96 rounded-full overflow-hidden border-4 border-primary/30 shadow-[0_0_60px_rgba(96,165,250,0.4)]">
+                  <img
+                    src={profileImg}
+                    alt="Pragatti Harchand"
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
+                </div>
               </div>
             </motion.div>
           </div>
@@ -122,26 +179,119 @@ const Index = () => {
         </motion.div>
       </section>
 
-      {/* Skills Section */}
-      <section className="py-20 bg-gradient-secondary">
+      {/* Stats Section */}
+      <section className="py-16 relative">
         <div className="container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-12"
-          >
-            <h2 className="text-4xl font-bold mb-4 bg-gradient-primary bg-clip-text text-transparent">
-              Technical Skills
-            </h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              Expertise in modern frontend technologies and frameworks
-            </p>
-          </motion.div>
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+            {stats.map((stat, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                className="text-center"
+              >
+                <Card className="bg-card/60 backdrop-blur-glass border-border hover:border-primary/50 transition-all duration-300 p-6 hover:shadow-[0_0_40px_rgba(96,165,250,0.15)]">
+                  <div className="text-4xl lg:text-5xl font-bold bg-gradient-primary bg-clip-text text-transparent mb-2">
+                    <AnimatedCounter value={stat.value} suffix={stat.suffix} />
+                  </div>
+                  <p className="text-sm lg:text-base text-muted-foreground font-medium">
+                    {stat.label}
+                  </p>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Skills Section */}
+      <section className="py-20 bg-gradient-secondary relative">
+        <div className="absolute inset-0 bg-[var(--gradient-mesh)]" />
+        <div className="container mx-auto px-4 relative">
+          <SectionHeader
+            icon={Zap}
+            title="Technical Skills"
+            subtitle="Expertise in modern frontend technologies and frameworks"
+          />
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {skills.map((skill, index) => (
               <SkillCard key={skill.name} {...skill} index={index} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Services Section */}
+      <section className="py-20">
+        <div className="container mx-auto px-4">
+          <SectionHeader
+            icon={Briefcase}
+            title="What I Do"
+            subtitle="Comprehensive web development services tailored to your needs"
+          />
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {services.map((service, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                whileHover={{ y: -5 }}
+              >
+                <Card className="bg-card/60 backdrop-blur-glass border-border hover:border-primary/50 transition-all duration-300 p-8 h-full hover:shadow-[0_0_40px_rgba(96,165,250,0.15)]">
+                  <div className="w-14 h-14 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center mb-6">
+                    <service.icon className="w-7 h-7 text-primary" />
+                  </div>
+                  <h3 className="text-2xl font-bold mb-4">{service.title}</h3>
+                  <p className="text-muted-foreground leading-relaxed">
+                    {service.description}
+                  </p>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials Section */}
+      <section className="py-20 bg-gradient-secondary relative">
+        <div className="absolute inset-0 bg-[var(--gradient-mesh)] opacity-50" />
+        <div className="container mx-auto px-4 relative">
+          <SectionHeader
+            icon={Users}
+            title="Client Testimonials"
+            subtitle="What people say about working with me"
+          />
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {testimonials.map((testimonial, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+              >
+                <Card className="bg-card/60 backdrop-blur-glass border-border hover:border-primary/30 transition-all duration-300 p-6 h-full">
+                  <div className="flex gap-1 mb-4">
+                    {[...Array(testimonial.rating)].map((_, i) => (
+                      <Star key={i} className="w-4 h-4 fill-primary text-primary" />
+                    ))}
+                  </div>
+                  <p className="text-muted-foreground mb-6 italic leading-relaxed">
+                    "{testimonial.content}"
+                  </p>
+                  <div className="border-t border-border pt-4">
+                    <p className="font-semibold">{testimonial.name}</p>
+                    <p className="text-sm text-muted-foreground">{testimonial.role}</p>
+                  </div>
+                </Card>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -154,26 +304,48 @@ const Index = () => {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="bg-card/60 backdrop-blur-glass border border-border rounded-2xl p-12 text-center relative overflow-hidden"
+            className="relative overflow-hidden rounded-3xl"
           >
-            <div className="absolute inset-0 bg-gradient-primary opacity-5" />
-            <div className="relative z-10">
-              <h2 className="text-3xl lg:text-4xl font-bold mb-4">
+            <div className="absolute inset-0 bg-gradient-primary opacity-10" />
+            <div className="absolute inset-0 bg-[var(--gradient-mesh)]" />
+            <div className="relative z-10 bg-card/40 backdrop-blur-glass border border-primary/20 rounded-3xl p-12 lg:p-16 text-center">
+              <motion.div
+                initial={{ scale: 0 }}
+                whileInView={{ scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.2, type: "spring" }}
+                className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-primary/10 border border-primary/20 mb-6"
+              >
+                <Coffee className="w-8 h-8 text-primary" />
+              </motion.div>
+              <h2 className="text-3xl lg:text-5xl font-bold mb-6 bg-gradient-primary bg-clip-text text-transparent">
                 Let's Build Something Amazing Together
               </h2>
-              <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
-                I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision.
+              <p className="text-lg lg:text-xl text-muted-foreground mb-10 max-w-3xl mx-auto leading-relaxed">
+                I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision. Let's grab a virtual coffee and create something extraordinary!
               </p>
-              <Button
-                size="lg"
-                className="bg-primary hover:bg-primary/90 text-primary-foreground gap-2 shadow-[0_0_30px_rgba(0,196,255,0.3)]"
-                asChild
-              >
-                <Link to="/contact">
-                  Get In Touch
-                  <ArrowRight className="w-4 h-4" />
-                </Link>
-              </Button>
+              <div className="flex flex-wrap gap-4 justify-center">
+                <Button
+                  size="lg"
+                  className="bg-primary hover:bg-primary/90 text-primary-foreground gap-2 shadow-[0_0_30px_rgba(96,165,250,0.3)] hover:shadow-[0_0_50px_rgba(96,165,250,0.5)] transition-all text-lg px-8 py-6"
+                  asChild
+                >
+                  <Link to="/contact">
+                    Get In Touch
+                    <ArrowRight className="w-5 h-5" />
+                  </Link>
+                </Button>
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="border-primary/30 hover:bg-primary/10 gap-2 text-lg px-8 py-6"
+                  asChild
+                >
+                  <Link to="/projects">
+                    View Projects
+                  </Link>
+                </Button>
+              </div>
             </div>
           </motion.div>
         </div>

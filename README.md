@@ -1,6 +1,150 @@
-# Welcome to your Lovable project
+# Pragatti Harchand - Portfolio
 
-## Project info
+A modern, professional portfolio website showcasing frontend development expertise, projects, and skills.
+
+## 🌟 Features
+
+- **Modern UI/UX Design**: Clean, elegant interface with smooth animations and transitions
+- **Responsive Design**: Fully responsive across all devices (mobile, tablet, desktop)
+- **Dark Theme**: Professional dark theme with gradient accents
+- **Interactive Elements**: Engaging animations using Framer Motion
+- **Particle Background**: Dynamic particle system for visual interest
+- **Project Showcase**: Filterable project gallery with detailed information
+- **Skills Visualization**: Animated skill cards with proficiency indicators
+- **Contact Form**: Validated contact form with real-time feedback
+- **Social Integration**: Links to GitHub, LinkedIn, and other social profiles
+- **SEO Optimized**: Built with best practices for search engine optimization
+
+## 🚀 Quick Start
+
+### Prerequisites
+
+- Node.js (v16 or higher)
+- npm or yarn
+
+### Installation
+
+```bash
+# Clone the repository
+git clone <repository-url>
+
+# Navigate to project directory
+cd pragatti-port-studio
+
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
+```
+
+The application will be available at `http://localhost:5173`
+
+## 📂 Project Structure
+
+```
+pragatti-port-studio/
+├── src/
+│   ├── components/          # Reusable components
+│   │   ├── ui/             # shadcn/ui components
+│   │   ├── AnimatedCounter.tsx
+│   │   ├── ParticlesBackground.tsx
+│   │   ├── ScrollToTop.tsx
+│   │   ├── SectionHeader.tsx
+│   │   ├── Navbar.tsx
+│   │   ├── Footer.tsx
+│   │   ├── ProjectCard.tsx
+│   │   └── SkillCard.tsx
+│   ├── pages/              # Page components
+│   │   ├── Index.tsx       # Home page
+│   │   ├── About.tsx       # About page
+│   │   ├── Projects.tsx    # Projects page
+│   │   ├── Contact.tsx     # Contact page
+│   │   └── NotFound.tsx    # 404 page
+│   ├── assets/             # Images and static assets
+│   ├── hooks/              # Custom React hooks
+│   ├── lib/                # Utility functions
+│   ├── App.tsx             # Main app component
+│   ├── main.tsx           # Entry point
+│   └── index.css          # Global styles
+├── public/                 # Public assets
+├── package.json
+└── README.md
+```
+
+## 🎨 Design System
+
+### Color Palette
+
+- **Primary**: Blue gradient (#60A5FA to #A78BFA)
+- **Background**: Dark navy (#0A0E1A)
+- **Card**: Dark gray with glassmorphism
+- **Accent**: Purple (#A78BFA)
+
+### Typography
+
+- Font Family: System UI fonts for optimal performance
+- Headings: Bold, gradient text
+- Body: Regular weight with optimized line-height
+
+## 🛠️ Technologies Used
+
+- **React 18**: Modern React with hooks
+- **TypeScript**: Type-safe code
+- **Vite**: Fast build tool and dev server
+- **Tailwind CSS**: Utility-first CSS framework
+- **shadcn/ui**: High-quality React components
+- **Framer Motion**: Animation library
+- **React Router**: Client-side routing
+- **Lucide React**: Icon library
+
+## 📦 Available Scripts
+
+```bash
+# Start development server
+npm run dev
+
+# Build for production
+npm run build
+
+# Preview production build
+npm run preview
+
+# Run linter
+npm run lint
+```
+
+## 🎯 Key Sections
+
+### Home Page
+- Hero section with profile image and CTA
+- Stats counter showing achievements
+- Technical skills showcase
+- Services offered
+- Client testimonials
+- Call-to-action section
+
+### About Page
+- Professional bio
+- Technical expertise grid
+- Achievements and awards
+- Work experience timeline
+- Education details
+- Certifications
+
+### Projects Page
+- Filterable project gallery
+- Project categories (Web, Mobile, Dashboard)
+- Live demo and source code links
+- Technology stack badges
+
+### Contact Page
+- Validated contact form
+- Contact information cards
+- Social media links
+- Real-time form validation
+
+## 🌐 Deployment
 
 **URL**: https://lovable.dev/projects/e15632c7-c551-4154-8828-f678ee8ac1c5
 
@@ -50,24 +194,66 @@ npm run dev
 - Click on "New codespace" to launch a new Codespace environment.
 - Edit files directly within the Codespace and commit and push your changes once you're done.
 
-## What technologies are used for this project?
+## 🔧 Configuration
 
-This project is built with:
+### Environment Variables
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+No environment variables required for basic functionality.
+
+### Customization
+
+1. **Update Personal Information**: Edit the content in page components
+2. **Change Colors**: Modify `src/index.css` color variables
+3. **Add Projects**: Update the projects array in `src/pages/Projects.tsx`
+4. **Modify Skills**: Edit skills array in `src/pages/Index.tsx`
+
+## 📱 Browser Support
+
+- Chrome (latest)
+- Firefox (latest)
+- Safari (latest)
+- Edge (latest)
+
+## 🤝 Contributing
+
+This is a personal portfolio project. Feel free to fork and customize for your own use!
 
 ## How can I deploy this project?
 
 Simply open [Lovable](https://lovable.dev/projects/e15632c7-c551-4154-8828-f678ee8ac1c5) and click on Share -> Publish.
 
-## Can I connect a custom domain to my Lovable project?
+## 🎓 Learning Resources
 
-Yes, you can!
+This project demonstrates:
+- Modern React patterns and best practices
+- TypeScript usage in React applications
+- Advanced Tailwind CSS techniques
+- Framer Motion animations
+- Component composition
+- Responsive design principles
+- Form validation
+- Routing with React Router
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+## 📄 License
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+This project is open source and available under the MIT License.
+
+## 👤 Author
+
+**Pragatti Harchand**
+- Portfolio: [Your Portfolio URL]
+- GitHub: [@pragatti](https://github.com)
+- LinkedIn: [Pragatti Harchand](https://linkedin.com)
+
+## 🙏 Acknowledgments
+
+- Design inspiration from modern portfolio websites
+- Icons by [Lucide](https://lucide.dev)
+- UI components by [shadcn/ui](https://ui.shadcn.com)
+- Built with [Lovable](https://lovable.dev)
+
+---
+
+⭐ Star this repo if you found it helpful!
+
+**Built with ❤️ and ☕ by Pragatti Harchand**

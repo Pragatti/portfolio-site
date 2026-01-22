@@ -1,71 +1,221 @@
 import { motion } from "framer-motion";
-import { Briefcase, GraduationCap, Award } from "lucide-react";
+import { Briefcase, GraduationCap, Award, Download, Trophy, Target, Sparkles } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
+import { SectionHeader } from "@/components/SectionHeader";
+import profileImg from "@/assets/profile.jpg";
 
 const About = () => {
   const experiences = [
     {
-      year: "2021 - Present",
-      role: "Senior Frontend Developer",
-      company: "Tech Innovations Inc.",
-      description: "Leading frontend development initiatives and mentoring junior developers.",
-    },
-    {
-      year: "2019 - 2021",
+      year: "Mar '22 – Nov '25",
       role: "Frontend Developer",
-      company: "Digital Solutions Ltd.",
-      description: "Developed responsive web applications using React and modern JavaScript.",
+      company: "Digimantra Labs",
+      description: "Engineered and optimized modular and responsive UI using React.js, Next.js, and Tailwind CSS, improving site load speed by 20% and user experience across devices. Integrated headless WordPress CMS with GraphQL, reducing API response time by 30% and enabling dynamic content updates. Collaborated with backend teams on Node.js and NestJS services for end-to-end product delivery. Conducted Lighthouse audits and implemented accessibility best practices for a 98% cross-browser compatibility score.",
     },
     {
-      year: "2018 - 2019",
-      role: "Junior Developer",
-      company: "StartUp Ventures",
-      description: "Started my journey in web development, focusing on UI/UX implementation.",
+      year: "Nov '21 – Jan '22",
+      role: "Assistant Consultant (Frontend Developer)",
+      company: "Oodles Technologies",
+      description: "Migrated and refactored legacy frontends to modern React architecture, improving maintainability and page responsiveness by 15%. Partnered with design and product teams to deliver scalable UI components following Atomic Design principles. Standardized reusable React hooks and components, reducing code redundancy by 20%. Participated in code reviews, ensuring adherence to clean coding standards and TypeScript best practices.",
     },
+  ];
+
+  const achievements = [
+    {
+      icon: Target,
+      title: "20% Site Load Speed Improvement",
+      organization: "Digimantra Labs",
+      description: "Optimized modular and responsive UI, improving site load speed by 20% and enhancing user experience across devices",
+    },
+    {
+      icon: Trophy,
+      title: "98% Cross-Browser Compatibility",
+      organization: "Accessibility Best Practices",
+      description: "Conducted Lighthouse audits and implemented accessibility best practices achieving 98% cross-browser compatibility score",
+    },
+    {
+      icon: Sparkles,
+      title: "30% API Response Time Reduction",
+      organization: "GraphQL Integration",
+      description: "Integrated headless WordPress CMS with GraphQL, reducing API response time by 30% and enabling dynamic content updates",
+    },
+  ];
+
+  const skills = [
+    { category: "Frontend Technologies", items: ["React.js", "Next.js", "JavaScript (ES6+)", "TypeScript", "HTML5", "CSS3", "Tailwind CSS"] },
+    { category: "State Management", items: ["Redux", "Redux Toolkit", "Context API", "React Query"] },
+    { category: "Backend & API Integration", items: ["RESTful APIs", "GraphQL", "Axios", "Fetch API", "Node.js", "Prisma"] },
+    { category: "Tools & Methodologies", items: ["Git", "GitHub", "Webpack", "Vite", "Jest", "Lighthouse", "Core Web Vitals", "Agile", "Scrum", "CI/CD"] },
   ];
 
   return (
     <div className="min-h-screen pt-24 pb-12">
       <div className="container mx-auto px-4">
+        {/* Hero Section with Image */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          className="max-w-4xl mx-auto"
+          className="max-w-6xl mx-auto mb-20"
         >
-          <h1 className="text-5xl font-bold mb-6 bg-gradient-primary bg-clip-text text-transparent">
-            About Me
-          </h1>
-          
-          <div className="prose prose-invert max-w-none mb-12">
-            <p className="text-lg text-muted-foreground leading-relaxed">
-              I'm a passionate Frontend Developer with over 4 years of experience in creating beautiful, 
-              responsive, and user-friendly web applications. My journey in web development started with 
-              a curiosity about how websites work, and it has evolved into a deep passion for crafting 
-              exceptional digital experiences.
-            </p>
-            <p className="text-lg text-muted-foreground leading-relaxed mt-4">
-              I specialize in React, TypeScript, and modern CSS frameworks, with a keen eye for design 
-              and user experience. When I'm not coding, you can find me exploring new technologies, 
-              contributing to open-source projects, or sharing knowledge with the developer community.
-            </p>
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <motion.div
+                initial={{ opacity: 0, x: -30 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.2 }}
+              >
+                <h1 className="text-5xl lg:text-6xl font-bold mb-6 bg-gradient-primary bg-clip-text text-transparent">
+                  About Me
+                </h1>
+                
+                <div className="space-y-4 mb-8">
+                  <p className="text-lg text-muted-foreground leading-relaxed">
+                    I'm a <span className="text-primary font-semibold">Frontend Developer</span> with <span className="text-primary font-semibold">3+ years</span> of experience in building performant, scalable, and accessible web applications using <span className="text-primary font-semibold">React.js</span>, <span className="text-primary font-semibold">Next.js</span>, and <span className="text-primary font-semibold">TypeScript</span>. Skilled in developing modular UI components, optimizing application performance, and ensuring cross-browser compatibility.
+                  </p>
+                  <p className="text-lg text-muted-foreground leading-relaxed">
+                    Proficient in state management (Redux, React Query), REST/GraphQL integration, and Agile collaboration with backend teams. Strong understanding of Core Web Vitals, Lighthouse performance audits, and modern UI/UX practices. Familiar with Node.js, NestJS, and Prisma for end-to-end product development and microservice-based architecture.
+                  </p>
+                </div>
+
+                <Button 
+                  size="lg" 
+                  className="bg-primary hover:bg-primary/90 gap-2 shadow-lg hover:shadow-primary/50"
+                >
+                  <Download className="w-5 h-5" />
+                  Download Resume
+                </Button>
+              </motion.div>
+            </div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.3 }}
+              className="relative"
+            >
+              <div className="relative">
+                <div className="absolute inset-0 bg-gradient-primary blur-3xl opacity-20" />
+                <Card className="relative overflow-hidden border-primary/20">
+                  <img
+                    src={profileImg}
+                    alt="Pragatti Harchand"
+                    className="w-full h-auto object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
+                </Card>
+              </div>
+            </motion.div>
           </div>
+        </motion.div>
+
+        <div className="max-w-6xl mx-auto space-y-20">
+          {/* Skills Grid */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <SectionHeader
+              icon={Sparkles}
+              title="Technical Expertise"
+              subtitle="Technologies and tools I work with"
+              centered={false}
+            />
+            <div className="grid md:grid-cols-2 gap-6">
+              {skills.map((skill, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
+                >
+                  <Card className="bg-card/60 backdrop-blur-glass border-border hover:border-primary/30 transition-all p-6">
+                    <h3 className="text-xl font-bold mb-4 text-primary">{skill.category}</h3>
+                    <div className="flex flex-wrap gap-2">
+                      {skill.items.map((item) => (
+                        <span
+                          key={item}
+                          className="text-sm px-3 py-1.5 rounded-full bg-primary/5 text-foreground border border-primary/10 hover:bg-primary/10 hover:border-primary/20 transition-all"
+                        >
+                          {item}
+                        </span>
+                      ))}
+                    </div>
+                  </Card>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+
+          {/* Achievements */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <SectionHeader
+              icon={Award}
+              title="Achievements & Recognition"
+              subtitle="Awards and milestones throughout my career"
+              centered={false}
+            />
+            <div className="grid md:grid-cols-3 gap-6">
+              {achievements.map((achievement, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
+                  whileHover={{ y: -5 }}
+                >
+                  <Card className="bg-card/60 backdrop-blur-glass border-border hover:border-primary/30 transition-all p-6 h-full">
+                    <div className="w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center mb-4">
+                      <achievement.icon className="w-6 h-6 text-primary" />
+                    </div>
+                    <h3 className="text-lg font-bold mb-2">{achievement.title}</h3>
+                    <p className="text-sm text-primary mb-3">{achievement.organization}</p>
+                    <p className="text-sm text-muted-foreground leading-relaxed">
+                      {achievement.description}
+                    </p>
+                  </Card>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
 
           {/* Education */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="mb-12"
           >
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
-                <GraduationCap className="w-5 h-5 text-primary" />
+            <SectionHeader
+              icon={GraduationCap}
+              title="Education"
+              centered={false}
+            />
+            <Card className="bg-card/60 backdrop-blur-glass border-border hover:border-primary/30 transition-all p-8">
+              <div className="flex items-start gap-4">
+                <div className="w-14 h-14 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center flex-shrink-0">
+                  <GraduationCap className="w-7 h-7 text-primary" />
+                </div>
+                <div>
+                  <h3 className="text-2xl font-semibold mb-2">Master of Computer Applications (MCA)</h3>
+                  <p className="text-muted-foreground mb-4">Chandigarh Group of Colleges, Landran, Mohali • Apr '19 – Apr '21</p>
+                  <p className="text-sm text-foreground/80 leading-relaxed mb-4">
+                    GPA: 8.21. Specialized in Computer Applications with focus on software development and web technologies.
+                  </p>
+                  <h3 className="text-xl font-semibold mb-2 mt-6">Bachelor of Computer Applications (BCA)</h3>
+                  <p className="text-muted-foreground mb-4">Govt. College Daulatpur Chowk, Himachal Pradesh • Apr '16 – Apr '19</p>
+                  <p className="text-sm text-foreground/80 leading-relaxed">
+                    GPA: 8.14. Foundation in computer applications and programming fundamentals.
+                  </p>
+                </div>
               </div>
-              <h2 className="text-3xl font-bold">Education</h2>
-            </div>
-            <div className="bg-card/60 backdrop-blur-glass border border-border rounded-lg p-6">
-              <h3 className="text-xl font-semibold mb-2">Bachelor of Computer Science</h3>
-              <p className="text-muted-foreground">University of Technology • 2014 - 2018</p>
-            </div>
+            </Card>
           </motion.div>
 
           {/* Experience Timeline */}
@@ -74,12 +224,12 @@ const About = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
-                <Briefcase className="w-5 h-5 text-primary" />
-              </div>
-              <h2 className="text-3xl font-bold">Work Experience</h2>
-            </div>
+            <SectionHeader
+              icon={Briefcase}
+              title="Work Experience"
+              subtitle="My professional journey and career milestones"
+              centered={false}
+            />
 
             <div className="space-y-6">
               {experiences.map((exp, index) => (
@@ -89,15 +239,19 @@ const About = () => {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
-                  className="relative pl-8 border-l-2 border-primary/30 hover:border-primary/60 transition-colors"
+                  className="relative pl-10 border-l-2 border-primary/30 hover:border-primary/60 transition-colors"
                 >
-                  <div className="absolute -left-2 top-0 w-4 h-4 rounded-full bg-primary" />
-                  <div className="bg-card/60 backdrop-blur-glass border border-border rounded-lg p-6 hover:border-primary/50 transition-all">
-                    <div className="text-sm text-primary font-semibold mb-2">{exp.year}</div>
-                    <h3 className="text-xl font-bold mb-1">{exp.role}</h3>
-                    <p className="text-muted-foreground mb-3">{exp.company}</p>
-                    <p className="text-sm text-foreground/80">{exp.description}</p>
-                  </div>
+                  <div className="absolute -left-[9px] top-2 w-4 h-4 rounded-full bg-primary shadow-[0_0_20px_rgba(96,165,250,0.5)]" />
+                  <Card className="bg-card/60 backdrop-blur-glass border-border hover:border-primary/40 hover:shadow-[0_0_30px_rgba(96,165,250,0.1)] transition-all p-6">
+                    <div className="text-sm text-primary font-semibold mb-2 flex items-center gap-2">
+                      <span className="px-3 py-1 rounded-full bg-primary/10 border border-primary/20">
+                        {exp.year}
+                      </span>
+                    </div>
+                    <h3 className="text-2xl font-bold mb-2">{exp.role}</h3>
+                    <p className="text-muted-foreground mb-4 font-medium">{exp.company}</p>
+                    <p className="text-sm text-foreground/80 leading-relaxed">{exp.description}</p>
+                  </Card>
                 </motion.div>
               ))}
             </div>
@@ -108,26 +262,45 @@ const About = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="mt-12"
           >
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
-                <Award className="w-5 h-5 text-primary" />
-              </div>
-              <h2 className="text-3xl font-bold">Certifications</h2>
-            </div>
-            <div className="grid md:grid-cols-2 gap-4">
-              <div className="bg-card/60 backdrop-blur-glass border border-border rounded-lg p-4 hover:border-primary/50 transition-all">
-                <h4 className="font-semibold mb-1">Advanced React & TypeScript</h4>
-                <p className="text-sm text-muted-foreground">2023</p>
-              </div>
-              <div className="bg-card/60 backdrop-blur-glass border border-border rounded-lg p-4 hover:border-primary/50 transition-all">
-                <h4 className="font-semibold mb-1">UI/UX Design Fundamentals</h4>
-                <p className="text-sm text-muted-foreground">2022</p>
-              </div>
+            <SectionHeader
+              icon={Award}
+              title="Certifications"
+              subtitle="Professional certifications and continuous learning"
+              centered={false}
+            />
+            <div className="grid md:grid-cols-2 gap-6">
+              <Card className="bg-card/60 backdrop-blur-glass border-border hover:border-primary/30 transition-all p-6">
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center flex-shrink-0">
+                    <Award className="w-6 h-6 text-primary" />
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-lg mb-1">Advanced React & TypeScript</h4>
+                    <p className="text-sm text-muted-foreground mb-2">2023</p>
+                    <p className="text-xs text-foreground/70">
+                      Deep dive into advanced React patterns and TypeScript features
+                    </p>
+                  </div>
+                </div>
+              </Card>
+              <Card className="bg-card/60 backdrop-blur-glass border-border hover:border-primary/30 transition-all p-6">
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center flex-shrink-0">
+                    <Award className="w-6 h-6 text-primary" />
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-lg mb-1">UI/UX Design Fundamentals</h4>
+                    <p className="text-sm text-muted-foreground mb-2">2022</p>
+                    <p className="text-xs text-foreground/70">
+                      Comprehensive course on design principles and user experience
+                    </p>
+                  </div>
+                </div>
+              </Card>
             </div>
           </motion.div>
-        </motion.div>
+        </div>
       </div>
     </div>
   );
