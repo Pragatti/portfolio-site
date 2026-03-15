@@ -3,12 +3,11 @@ import { Briefcase, GraduationCap, Award, Download, Trophy, Target, Sparkles } f
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { SectionHeader } from "@/components/SectionHeader";
-import profileImg from "@/assets/profile.jpg";
 
 const About = () => {
   const experiences = [
     {
-      year: "Mar '22 – Nov '25",
+      year: "Mar '22 – Mar '26",
       role: "Frontend Developer",
       company: "Digimantra Labs",
       description: "Engineered and optimized modular and responsive UI using React.js, Next.js, and Tailwind CSS, improving site load speed by 20% and user experience across devices. Integrated headless WordPress CMS with GraphQL, reducing API response time by 30% and enabling dynamic content updates. Collaborated with backend teams on Node.js and NestJS services for end-to-end product delivery. Conducted Lighthouse audits and implemented accessibility best practices for a 98% cross-browser compatibility score.",
@@ -58,7 +57,7 @@ const About = () => {
           animate={{ opacity: 1, y: 0 }}
           className="max-w-6xl mx-auto mb-20"
         >
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="grid lg:grid-cols-1 gap-12 items-center">
             <div>
               <motion.div
                 initial={{ opacity: 0, x: -30 }}
@@ -80,32 +79,18 @@ const About = () => {
 
                 <Button 
                   size="lg" 
+                  asChild
                   className="bg-primary hover:bg-primary/90 gap-2 shadow-lg hover:shadow-primary/50"
                 >
-                  <Download className="w-5 h-5" />
-                  Download Resume
+                  <a href="/Pragatti_Harchand_Resume.pdf" download>
+                    <Download className="w-5 h-5" />
+                    Download Resume
+                  </a>
                 </Button>
               </motion.div>
             </div>
 
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.3 }}
-              className="relative"
-            >
-              <div className="relative">
-                <div className="absolute inset-0 bg-gradient-primary blur-3xl opacity-20" />
-                <Card className="relative overflow-hidden border-primary/20">
-                  <img
-                    src={profileImg}
-                    alt="Pragatti Harchand"
-                    className="w-full h-auto object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
-                </Card>
-              </div>
-            </motion.div>
+            {/* Right-side image/avatar section removed as requested */}
           </div>
         </motion.div>
 
@@ -257,49 +242,6 @@ const About = () => {
             </div>
           </motion.div>
 
-          {/* Certifications */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
-            <SectionHeader
-              icon={Award}
-              title="Certifications"
-              subtitle="Professional certifications and continuous learning"
-              centered={false}
-            />
-            <div className="grid md:grid-cols-2 gap-6">
-              <Card className="bg-card/60 backdrop-blur-glass border-border hover:border-primary/30 transition-all p-6">
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center flex-shrink-0">
-                    <Award className="w-6 h-6 text-primary" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-lg mb-1">Advanced React & TypeScript</h4>
-                    <p className="text-sm text-muted-foreground mb-2">2023</p>
-                    <p className="text-xs text-foreground/70">
-                      Deep dive into advanced React patterns and TypeScript features
-                    </p>
-                  </div>
-                </div>
-              </Card>
-              <Card className="bg-card/60 backdrop-blur-glass border-border hover:border-primary/30 transition-all p-6">
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center flex-shrink-0">
-                    <Award className="w-6 h-6 text-primary" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-lg mb-1">UI/UX Design Fundamentals</h4>
-                    <p className="text-sm text-muted-foreground mb-2">2022</p>
-                    <p className="text-xs text-foreground/70">
-                      Comprehensive course on design principles and user experience
-                    </p>
-                  </div>
-                </div>
-              </Card>
-            </div>
-          </motion.div>
         </div>
       </div>
     </div>

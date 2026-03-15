@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
-import { Mail, MapPin, Phone, Send, Github, Linkedin, Twitter, MessageSquare } from "lucide-react";
+import { Mail, MapPin, Phone, Send, Github, Linkedin, MessageSquare } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -53,23 +53,61 @@ const Contact = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
-    if (!validateForm()) {
-      return;
-    }
+    if (!validateForm()) return;
 
     setIsSubmitting(true);
-    
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 1000));
-    
-    toast({
-      title: "Message Sent! ✓",
-      description: "Thank you for reaching out. I'll get back to you soon.",
-    });
-    
-    setFormData({ name: "", email: "", message: "" });
-    setErrors({ name: "", email: "", message: "" });
+
+    const accessKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY;
+
+    if (accessKey) {
+      try {
+        const res = await fetch("https://api.web3forms.com/submit", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            access_key: accessKey,
+            name: formData.name,
+            email: formData.email,
+            message: formData.message,
+          }),
+        });
+        const data = await res.json();
+        if (data.success) {
+          toast({
+            title: "Message Sent! ✓",
+            description: "Thank you for reaching out. I'll get back to you soon.",
+          });
+          setFormData({ name: "", email: "", message: "" });
+          setErrors({ name: "", email: "", message: "" });
+        } else {
+          toast({
+            title: "Could not send",
+            description: "Please try again or email me directly at pragatti4667@gmail.com",
+            variant: "destructive",
+          });
+        }
+      } catch {
+        toast({
+          title: "Error",
+          description: "Something went wrong. Please email pragatti4667@gmail.com directly.",
+          variant: "destructive",
+        });
+      }
+    } else {
+      // Fallback: open mail client (email tab tak aapke inbox tak nahi bhejti)
+      const subject = encodeURIComponent(`New contact from ${formData.name}`);
+      const body = encodeURIComponent(
+        `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
+      );
+      window.location.href = `mailto:pragatti4667@gmail.com?subject=${subject}&body=${body}`;
+      toast({
+        title: "Email client opened",
+        description: "Add your Form Key to get emails in inbox. See README or .env.example.",
+      });
+      setFormData({ name: "", email: "", message: "" });
+      setErrors({ name: "", email: "", message: "" });
+    }
+
     setIsSubmitting(false);
   };
 
@@ -98,20 +136,14 @@ const Contact = () => {
     {
       icon: Github,
       label: "GitHub",
-      link: "https://github.com",
+      link: "https://github.com/Pragatti?tab=overview&from=2026-03-01&to=2026-03-15",
       color: "hover:text-[#333]",
     },
     {
       icon: Linkedin,
       label: "LinkedIn",
-      link: "https://linkedin.com",
+      link: "https://www.linkedin.com/in/pragatti-harchand-b266921b2/",
       color: "hover:text-[#0077B5]",
-    },
-    {
-      icon: Twitter,
-      label: "Twitter",
-      link: "https://twitter.com",
-      color: "hover:text-[#1DA1F2]",
     },
   ];
 
@@ -282,7 +314,7 @@ const Contact = () => {
                   type="submit"
                   size="lg"
                   disabled={isSubmitting}
-                  className="w-full bg-primary hover:bg-primary/90 text-primary-foreground gap-2 shadow-lg hover:shadow-primary/50 transition-all disabled:opacity-50"
+                  className="w-full bg-primary hover:bg-primary/90 text-primary-foreground gap-2 shadow-lg hover:shadow-primary/50 transition-all disabled:opacity-70"
                 >
                   {isSubmitting ? "Sending..." : "Send Message"}
                   <Send className="w-4 h-4" />

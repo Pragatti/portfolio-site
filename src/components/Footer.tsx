@@ -1,4 +1,4 @@
-import { Github, Linkedin, Mail, Heart, Code2, Twitter } from "lucide-react";
+import { Github, Linkedin, Mail, Heart, Code2 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 
@@ -8,21 +8,15 @@ const Footer = () => {
   const socialLinks = [
     {
       icon: Github,
-      href: "https://github.com",
+      href: "https://github.com/Pragatti?tab=overview&from=2026-03-01&to=2026-03-15",
       label: "GitHub",
       color: "hover:text-foreground",
     },
     {
       icon: Linkedin,
-      href: "https://linkedin.com",
+      href: "https://www.linkedin.com/in/pragatti-harchand-b266921b2/",
       label: "LinkedIn",
       color: "hover:text-[#0077B5]",
-    },
-    {
-      icon: Twitter,
-      href: "https://twitter.com",
-      label: "Twitter",
-      color: "hover:text-[#1DA1F2]",
     },
     {
       icon: Mail,

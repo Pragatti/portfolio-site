@@ -13,9 +13,17 @@ const Projects = () => {
       title: "Agent Console - EarthLink",
       description: "Developed a high-performance internal portal for 500+ support agents, improving task efficiency by 30% through modular UI and state optimization. Connected backend microservices (NestJS, Prisma) with the frontend React modules, enabling seamless data flow and reducing API latency by 25%. Led peer code reviews, fostering a collaborative environment and mentoring junior developers.",
       tech: ["React.js", "NestJS", "Prisma", "TypeScript", "Microservices"],
-      category: "web",
+      category: "dashboard",
       image: "",
       liveUrl: "https://earthlink.net",
+    },
+    {
+      title: "Web Activation & WiFi Plan Upgrade",
+      description: "Built the activation web experience for EarthLink customers to activate new connections and upgrade WiFi plans seamlessly. Implemented secure form flows, validation, and integration with backend services to provision and update plans in real time.",
+      tech: ["React.js", "TypeScript", "REST APIs", "Form Validation"],
+      category: "web",
+      image: "",
+      liveUrl: "https://activation.elnkdev.com/activate",
     },
     {
       title: "EarthLink.net - Internet Service Provider",
@@ -55,7 +63,7 @@ const Projects = () => {
           className="flex justify-center mb-12"
         >
           <Tabs value={filter} onValueChange={setFilter} className="w-full max-w-md">
-            <TabsList className="grid w-full grid-cols-4 bg-card/60 backdrop-blur-glass border border-border">
+            <TabsList className="grid w-full grid-cols-3 bg-card/60 backdrop-blur-glass border border-border">
               <TabsTrigger 
                 value="all"
                 className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
@@ -67,12 +75,6 @@ const Projects = () => {
                 className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
               >
                 Web
-              </TabsTrigger>
-              <TabsTrigger 
-                value="mobile"
-                className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
-              >
-                Mobile
               </TabsTrigger>
               <TabsTrigger 
                 value="dashboard"

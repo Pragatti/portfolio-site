@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowRight, Code, Palette, Zap, Rocket, Briefcase, Users, Award, Coffee, Globe, Smartphone, Layout, Database, Star } from "lucide-react";
+import { ArrowRight, Code, Palette, Zap, Rocket, Briefcase, Users, Award, Coffee, Globe, Smartphone, Layout, Database } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -7,7 +7,6 @@ import SkillCard from "@/components/SkillCard";
 import { AnimatedCounter } from "@/components/AnimatedCounter";
 import { SectionHeader } from "@/components/SectionHeader";
 import heroBg from "@/assets/hero-bg.jpg";
-import profileImg from "@/assets/profile.jpg";
 
 const Index = () => {
   const skills = [
@@ -46,27 +45,6 @@ const Index = () => {
       icon: Globe,
       title: "Accessibility & UX",
       description: "Ensuring 98% cross-browser compatibility, implementing accessibility best practices, and following modern UI/UX principles.",
-    },
-  ];
-
-  const testimonials = [
-    {
-      name: "Sarah Johnson",
-      role: "CEO, TechStart Inc.",
-      content: "Pragatti delivered an exceptional website that exceeded our expectations. The attention to detail and user experience is outstanding.",
-      rating: 5,
-    },
-    {
-      name: "Michael Chen",
-      role: "Product Manager, Digital Solutions",
-      content: "Working with Pragatti was a pleasure. Professional, creative, and always delivers on time. Highly recommended!",
-      rating: 5,
-    },
-    {
-      name: "Emily Rodriguez",
-      role: "Founder, Creative Agency",
-      content: "The quality of work and dedication to the project was remarkable. Our new platform has received amazing feedback from users.",
-      rating: 5,
     },
   ];
 
@@ -142,24 +120,7 @@ const Index = () => {
               </motion.div>
             </motion.div>
 
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.6, duration: 0.6 }}
-              className="flex-1 flex justify-center lg:justify-end"
-            >
-              <div className="relative">
-                <div className="absolute inset-0 bg-gradient-primary blur-3xl opacity-30 animate-glow" />
-                <div className="relative w-64 h-64 lg:w-96 lg:h-96 rounded-full overflow-hidden border-4 border-primary/30 shadow-[0_0_60px_rgba(96,165,250,0.4)]">
-                  <img
-                    src={profileImg}
-                    alt="Pragatti Harchand"
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
-                </div>
-              </div>
-            </motion.div>
+            {/* Right hero visual removed as requested */}
           </div>
         </div>
 
@@ -251,45 +212,6 @@ const Index = () => {
                   <p className="text-muted-foreground leading-relaxed">
                     {service.description}
                   </p>
-                </Card>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Testimonials Section */}
-      <section className="py-20 bg-gradient-secondary relative">
-        <div className="absolute inset-0 bg-[var(--gradient-mesh)] opacity-50" />
-        <div className="container mx-auto px-4 relative">
-          <SectionHeader
-            icon={Users}
-            title="Client Testimonials"
-            subtitle="What people say about working with me"
-          />
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {testimonials.map((testimonial, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-              >
-                <Card className="bg-card/60 backdrop-blur-glass border-border hover:border-primary/30 transition-all duration-300 p-6 h-full">
-                  <div className="flex gap-1 mb-4">
-                    {[...Array(testimonial.rating)].map((_, i) => (
-                      <Star key={i} className="w-4 h-4 fill-primary text-primary" />
-                    ))}
-                  </div>
-                  <p className="text-muted-foreground mb-6 italic leading-relaxed">
-                    "{testimonial.content}"
-                  </p>
-                  <div className="border-t border-border pt-4">
-                    <p className="font-semibold">{testimonial.name}</p>
-                    <p className="text-sm text-muted-foreground">{testimonial.role}</p>
-                  </div>
                 </Card>
               </motion.div>
             ))}
