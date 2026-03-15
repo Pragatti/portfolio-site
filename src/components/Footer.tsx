@@ -49,7 +49,7 @@ const Footer = () => {
               </span>
             </div>
             <p className="text-sm text-muted-foreground leading-relaxed mb-4">
-              React.js Developer with 3+ years of experience building performant, scalable, and accessible web applications.
+              React.js Developer with 3+ years of experience building high-performance, scalable, and accessible web applications.
             </p>
             <div className="flex items-center gap-2 text-sm text-muted-foreground">
               <span>Built with</span>

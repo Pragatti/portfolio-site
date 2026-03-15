@@ -66,9 +66,12 @@ const Contact = () => {
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
             access_key: accessKey,
-            name: formData.name,
+            subject: `Portfolio contact from ${formData.name}`,
+            from_name: formData.name,
             email: formData.email,
+            name: formData.name,
             message: formData.message,
+            botcheck: "", // leave empty; bots that fill this get blocked
           }),
         });
         const data = await res.json();
@@ -82,7 +85,7 @@ const Contact = () => {
         } else {
           toast({
             title: "Could not send",
-            description: "Please try again or email me directly at pragatti4667@gmail.com",
+            description: data.message || "Please try again or email pragatti4667@gmail.com",
             variant: "destructive",
           });
         }

@@ -70,7 +70,7 @@ const About = () => {
                 
                 <div className="space-y-4 mb-8">
                   <p className="text-lg text-muted-foreground leading-relaxed">
-                    I'm a <span className="text-primary font-semibold">Frontend Developer</span> with <span className="text-primary font-semibold">3+ years</span> of experience in building performant, scalable, and accessible web applications using <span className="text-primary font-semibold">React.js</span>, <span className="text-primary font-semibold">Next.js</span>, and <span className="text-primary font-semibold">TypeScript</span>. Skilled in developing modular UI components, optimizing application performance, and ensuring cross-browser compatibility.
+                    I'm a <span className="text-primary font-semibold">Frontend Developer</span> with <span className="text-primary font-semibold">3+ years</span> of experience in building high-performance, scalable, and accessible web applications using <span className="text-primary font-semibold">React.js</span>, <span className="text-primary font-semibold">Next.js</span>, and <span className="text-primary font-semibold">TypeScript</span>. Skilled in developing modular UI components, optimizing application performance, and ensuring cross-browser compatibility.
                   </p>
                   <p className="text-lg text-muted-foreground leading-relaxed">
                     Proficient in state management (Redux, React Query), REST/GraphQL integration, and Agile collaboration with backend teams. Strong understanding of Core Web Vitals, Lighthouse performance audits, and modern UI/UX practices. Familiar with Node.js, NestJS, and Prisma for end-to-end product development and microservice-based architecture.

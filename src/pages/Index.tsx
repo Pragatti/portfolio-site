@@ -95,7 +95,7 @@ const Index = () => {
                 transition={{ delay: 0.4 }}
                 className="text-xl lg:text-2xl text-muted-foreground mb-8 max-w-2xl leading-relaxed"
               >
-                Frontend Developer with <span className="text-primary font-semibold">3+ years</span> of experience building performant, scalable, and accessible web applications using <span className="text-primary font-semibold">React.js</span>, <span className="text-primary font-semibold">Next.js</span>, and <span className="text-primary font-semibold">TypeScript</span>
+                Frontend Developer with <span className="text-primary font-semibold">3+ years</span> of experience building high-performance, scalable, and accessible web applications using <span className="text-primary font-semibold">React.js</span>, <span className="text-primary font-semibold">Next.js</span>, and <span className="text-primary font-semibold">TypeScript</span>
               </motion.p>
 
               <motion.div
